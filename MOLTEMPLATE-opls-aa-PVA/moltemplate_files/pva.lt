@@ -1,0 +1,138 @@
+# This is a simple example showing how to build a long polymer
+# (in this case, an simple PVA chain). I split the
+# PVA polymer molecule into individual -CH2-, -CH-, -OH-, -H- units.
+# 
+# Abhishek Bagusetty
+# The Johnson Group, University of Pittsburgh
+# Date : July 14, 2016
+#
+# PVA - OPLS_AA force field
+#
+
+
+import "oplsaa.lt"        # load the "OPLSAA" force-field information
+import "chohgroup.lt"     # load the definition of the  "CHOH" object
+import "ch2group.lt"      # load the definition of the  "CH2" object
+import "ch3group.lt"      # load the definition of the  "CH3" object for capping start
+import "ch3endgroup.lt"   # load the definition of the  "CH3" object for capping end
+
+
+PVA inherits OPLSAA {
+
+  create_var {$mol}  # optional:force all monomers to share the same molecule-ID
+
+  monomers  = new CH2 [50].rot(0,1,0,0).move(2.5066446,0,0)
+  monomers1 = new CHOH [50].rot(0,1,0,0).move(2.5066446,0,0)
+
+  # Cap the ends with united atom "CH3"
+  monomers3 = new CH3 [1]
+  monomers4 = new CH3END [1]
+
+  # Now add a list of bonds connecting the carbon atoms together:
+  # (Angles, dihedrals, impropers will be automatically added later.)
+
+  write('Data Bond List') {
+    $bond:b1   $atom:monomers[0]/C $atom:monomers1[0]/C
+    $bond:b2   $atom:monomers[1]/C $atom:monomers1[1]/C
+    $bond:b3   $atom:monomers[2]/C $atom:monomers1[2]/C
+    $bond:b4   $atom:monomers[3]/C $atom:monomers1[3]/C
+    $bond:b5   $atom:monomers[4]/C $atom:monomers1[4]/C
+    $bond:b6   $atom:monomers[5]/C $atom:monomers1[5]/C
+    $bond:b7   $atom:monomers[6]/C $atom:monomers1[6]/C
+    $bond:b8   $atom:monomers[7]/C $atom:monomers1[7]/C
+    $bond:b9   $atom:monomers[8]/C $atom:monomers1[8]/C
+    $bond:b10   $atom:monomers[9]/C $atom:monomers1[9]/C
+    $bond:b11   $atom:monomers[10]/C $atom:monomers1[10]/C
+    $bond:b12   $atom:monomers[11]/C $atom:monomers1[11]/C
+    $bond:b13   $atom:monomers[12]/C $atom:monomers1[12]/C
+    $bond:b14   $atom:monomers[13]/C $atom:monomers1[13]/C
+    $bond:b15   $atom:monomers[14]/C $atom:monomers1[14]/C
+    $bond:b16   $atom:monomers[15]/C $atom:monomers1[15]/C
+    $bond:b17   $atom:monomers[16]/C $atom:monomers1[16]/C
+    $bond:b18   $atom:monomers[17]/C $atom:monomers1[17]/C
+    $bond:b19   $atom:monomers[18]/C $atom:monomers1[18]/C
+    $bond:b20   $atom:monomers[19]/C $atom:monomers1[19]/C
+    $bond:b21   $atom:monomers[20]/C $atom:monomers1[20]/C
+    $bond:b22   $atom:monomers[21]/C $atom:monomers1[21]/C
+    $bond:b23   $atom:monomers[22]/C $atom:monomers1[22]/C
+    $bond:b24   $atom:monomers[23]/C $atom:monomers1[23]/C
+    $bond:b25   $atom:monomers[24]/C $atom:monomers1[24]/C
+    $bond:b26   $atom:monomers[25]/C $atom:monomers1[25]/C
+    $bond:b27   $atom:monomers[26]/C $atom:monomers1[26]/C
+    $bond:b28   $atom:monomers[27]/C $atom:monomers1[27]/C
+    $bond:b29   $atom:monomers[28]/C $atom:monomers1[28]/C
+    $bond:b30   $atom:monomers[29]/C $atom:monomers1[29]/C
+    $bond:b31   $atom:monomers[30]/C $atom:monomers1[30]/C
+    $bond:b32   $atom:monomers[31]/C $atom:monomers1[31]/C
+    $bond:b33   $atom:monomers[32]/C $atom:monomers1[32]/C
+    $bond:b34   $atom:monomers[33]/C $atom:monomers1[33]/C
+    $bond:b35   $atom:monomers[34]/C $atom:monomers1[34]/C
+    $bond:b36   $atom:monomers[35]/C $atom:monomers1[35]/C
+    $bond:b37   $atom:monomers[36]/C $atom:monomers1[36]/C
+    $bond:b38   $atom:monomers[37]/C $atom:monomers1[37]/C
+    $bond:b39   $atom:monomers[38]/C $atom:monomers1[38]/C
+    $bond:b40   $atom:monomers[39]/C $atom:monomers1[39]/C
+    $bond:b41   $atom:monomers[40]/C $atom:monomers1[40]/C
+    $bond:b42   $atom:monomers[41]/C $atom:monomers1[41]/C
+    $bond:b43   $atom:monomers[42]/C $atom:monomers1[42]/C
+    $bond:b44   $atom:monomers[43]/C $atom:monomers1[43]/C
+    $bond:b45   $atom:monomers[44]/C $atom:monomers1[44]/C
+    $bond:b46   $atom:monomers[45]/C $atom:monomers1[45]/C
+    $bond:b47   $atom:monomers[46]/C $atom:monomers1[46]/C
+    $bond:b48   $atom:monomers[47]/C $atom:monomers1[47]/C
+    $bond:b49   $atom:monomers[48]/C $atom:monomers1[48]/C
+    $bond:b50   $atom:monomers[49]/C $atom:monomers1[49]/C
+    $bond:b51   $atom:monomers1[0]/C $atom:monomers[1]/C
+    $bond:b52   $atom:monomers1[1]/C $atom:monomers[2]/C
+    $bond:b53   $atom:monomers1[2]/C $atom:monomers[3]/C
+    $bond:b54   $atom:monomers1[3]/C $atom:monomers[4]/C
+    $bond:b55   $atom:monomers1[4]/C $atom:monomers[5]/C
+    $bond:b56   $atom:monomers1[5]/C $atom:monomers[6]/C
+    $bond:b57   $atom:monomers1[6]/C $atom:monomers[7]/C
+    $bond:b58   $atom:monomers1[7]/C $atom:monomers[8]/C
+    $bond:b59   $atom:monomers1[8]/C $atom:monomers[9]/C
+    $bond:b60   $atom:monomers1[9]/C $atom:monomers[10]/C
+    $bond:b61   $atom:monomers1[10]/C $atom:monomers[11]/C
+    $bond:b62   $atom:monomers1[11]/C $atom:monomers[12]/C
+    $bond:b63   $atom:monomers1[12]/C $atom:monomers[13]/C
+    $bond:b64   $atom:monomers1[13]/C $atom:monomers[14]/C
+    $bond:b65   $atom:monomers1[14]/C $atom:monomers[15]/C
+    $bond:b66   $atom:monomers1[15]/C $atom:monomers[16]/C
+    $bond:b67   $atom:monomers1[16]/C $atom:monomers[17]/C
+    $bond:b68   $atom:monomers1[17]/C $atom:monomers[18]/C
+    $bond:b69   $atom:monomers1[18]/C $atom:monomers[19]/C
+    $bond:b70   $atom:monomers1[19]/C $atom:monomers[20]/C
+    $bond:b71   $atom:monomers1[20]/C $atom:monomers[21]/C
+    $bond:b72   $atom:monomers1[21]/C $atom:monomers[22]/C
+    $bond:b73   $atom:monomers1[22]/C $atom:monomers[23]/C
+    $bond:b74   $atom:monomers1[23]/C $atom:monomers[24]/C
+    $bond:b75   $atom:monomers1[24]/C $atom:monomers[25]/C
+    $bond:b76   $atom:monomers1[25]/C $atom:monomers[26]/C
+    $bond:b77   $atom:monomers1[26]/C $atom:monomers[27]/C
+    $bond:b78   $atom:monomers1[27]/C $atom:monomers[28]/C
+    $bond:b79   $atom:monomers1[28]/C $atom:monomers[29]/C
+    $bond:b80   $atom:monomers1[29]/C $atom:monomers[30]/C
+    $bond:b81   $atom:monomers1[30]/C $atom:monomers[31]/C
+    $bond:b82   $atom:monomers1[31]/C $atom:monomers[32]/C
+    $bond:b83   $atom:monomers1[32]/C $atom:monomers[33]/C
+    $bond:b84   $atom:monomers1[33]/C $atom:monomers[34]/C
+    $bond:b85   $atom:monomers1[34]/C $atom:monomers[35]/C
+    $bond:b86   $atom:monomers1[35]/C $atom:monomers[36]/C
+    $bond:b87   $atom:monomers1[36]/C $atom:monomers[37]/C
+    $bond:b88   $atom:monomers1[37]/C $atom:monomers[38]/C
+    $bond:b89   $atom:monomers1[38]/C $atom:monomers[39]/C
+    $bond:b90   $atom:monomers1[39]/C $atom:monomers[40]/C
+    $bond:b91   $atom:monomers1[40]/C $atom:monomers[41]/C
+    $bond:b92   $atom:monomers1[41]/C $atom:monomers[42]/C
+    $bond:b93   $atom:monomers1[42]/C $atom:monomers[43]/C
+    $bond:b94   $atom:monomers1[43]/C $atom:monomers[44]/C
+    $bond:b95   $atom:monomers1[44]/C $atom:monomers[45]/C
+    $bond:b96   $atom:monomers1[45]/C $atom:monomers[46]/C
+    $bond:b97   $atom:monomers1[46]/C $atom:monomers[47]/C
+    $bond:b98   $atom:monomers1[47]/C $atom:monomers[48]/C
+    $bond:b99   $atom:monomers1[48]/C $atom:monomers[49]/C
+    $bond:b100   $atom:monomers1[49]/C $atom:monomers4[0]/C
+    $bond:b101   $atom:monomers[0]/C $atom:monomers3[0]/C
+  }
+
+} # PVA

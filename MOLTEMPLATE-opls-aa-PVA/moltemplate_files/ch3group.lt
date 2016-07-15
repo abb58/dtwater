@@ -1,0 +1,22 @@
+import "oplsaa.lt"    # <-- defines the "OPLSAA" force field
+
+CH3 inherits OPLSAA {
+
+# atom-id  mol-id atom-type  charge     x                    y                   z
+  write("Data Atoms") {
+    $atom:C  $mol:... @atom:80   0.00  -1.253322300   0.0000000000000000   0.0000000000000000
+    $atom:H1  $mol:... @atom:85  0.00  -1.253322300   0.6310438442242609   0.8924307629540046
+    $atom:H2  $mol:... @atom:85  0.00  -1.253322300   0.6310438442242609  -0.8924307629540046
+    $atom:H3  $mol:... @atom:85  0.00  -2.145753063  -0.6310438442242609   0.0000000000000000
+  }
+
+  # Now specify which pairs of atoms are bonded:
+  write('Data Bond List') {
+    $bond:CH1 $atom:C $atom:H1
+    $bond:CH2 $atom:C $atom:H2
+    $bond:CH3 $atom:C $atom:H3
+  }
+  
+} # CH3
+
+CH3.move(0,0.4431163,0)

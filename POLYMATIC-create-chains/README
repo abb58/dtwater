@@ -1,0 +1,8 @@
+
+A single chain created using "moltemplate" is used to create 8 randomly placed chains in a cubic domain
+with the help of packmol.
+
+*** IMPORTANT ***
+
+Make sure to delete/get rid of pair coeff section in the output data file as the relevant information 
+is supplied by the support/include files.

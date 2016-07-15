@@ -1,0 +1,10 @@
+import "pva.lt"  # Defines the "Alkane50" molecule
+
+polymer = new PVA
+
+# Specify the size of the world the polymer lives in:
+write_once("Data Boundary") {
+  0.0  800.0  xlo xhi
+  0.0  800.0  ylo yhi
+  0.0  800.0  zlo zhi
+}
